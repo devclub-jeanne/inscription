@@ -60,3 +60,26 @@ h1 {
     box-shadow: 0 0px black;
     top: 6px;
 }
+
+.top {
+    color: white;
+    font-family: 'Dm sans';
+    margin: 0 auto;
+    font-size: 100px;
+    right: -100%;
+    position: relative;
+    animation: SlideIn 1.5s ease-in-out forwards;
+}
+@media(max-width: 600px){
+    .top {
+        font-size: 70px;
+    }
+}
+@keyframes SlideIn {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0%;
+    }
+}
