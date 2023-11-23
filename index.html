@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stye.css">
+    <title>Inscription Dev Club</title>
+</head>
+<body>
+    <div class="eleve">
+        <h1>Eleve 1</h1>
+        <input type="text" placeholder="Ton Nom" id="name">
+        <input type="text" placeholder="Ce que tu veux faire" id="want">
+        <input type="text" placeholder="Ton expérience avec la programmation" id="know">
+    </div>
+    <div class="eleve">
+        <h1>Eleve 2</h1>
+        <input type="text" placeholder="Ton Nom" id="name2">
+        <input type="text" placeholder="Ce que tu veux faire" id="want2">
+        <input type="text" placeholder="Ton expérience avec la programmation" id="know2">
+    </div>
+    <div class="eleve">
+        <h1>Eleve 3</h1>
+        <input type="text" placeholder="Ton Nom" id="name3">
+        <input type="text" placeholder="Ce que tu veux faire" id="want3">
+        <input type="text" placeholder="Ton expérience avec la programmation" id="know3">
+    </div>
+    <button id="confirm">Confirm</button>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";    
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyCglg80rLNrgucGYWbdHLuoPN38XcGIHSg",
+        authDomain: "inscription-devclub.firebaseapp.com",
+        projectId: "inscription-devclub",
+        storageBucket: "inscription-devclub.appspot.com",
+        messagingSenderId: "603699642651",
+        appId: "1:603699642651:web:ffe601d0e7068d35bc93be",
+        measurementId: "G-F1DM08QBSQ"
+        };
+        
+      
+        import {getDatabase, ref, get, set, child, update, remove} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+      
+        // Initialize Firebase
+      
+        const app = initializeApp(firebaseConfig);
+
+        const db = getDatabase();
+      
+        const analytics = getAnalytics(app);
+
+        const name = document.getElementById("name");
+        const want = document.getElementById("want");
+        const know = document.getElementById("know");
+
+        const name2 = document.getElementById("name2");
+        const want2 = document.getElementById("want2");
+        const know2 = document.getElementById("know2");
+
+        const name3 = document.getElementById("name3");
+        const want3 = document.getElementById("want3");
+        const know3 = document.getElementById("know3");
+
+        const confirm = document.getElementById("confirm");
+        
+        function InsertData(){
+            set(ref(db, "TheStudents/"+ name.value), {
+                Name: name.value,
+                Want: want.value,
+                know: know.value
+            })
+            .then(() =>{
+                alert("Votre compte a été crée");
+            })
+            .catch((error) => {
+                alert("unsuccessfull , error" + error);
+            });
+
+            set(ref(db, "TheStudents/"+ name2.value), {
+                Name: name2.value,
+                Want: want2.value,
+                know: know2.value
+            })
+
+            set(ref(db, "TheStudents/"+ name3.value), {
+                Name: name3.value,
+                Want: want3.value,
+                know: know3.value
+            })
+
+
+        }
+
+        confirm.addEventListener('click', InsertData)
+    </script>
+</body>
+</html>
