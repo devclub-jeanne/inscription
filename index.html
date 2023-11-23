@@ -14,18 +14,21 @@
         <input type="text" placeholder="Ton Nom" id="name">
         <input type="text" placeholder="Ce que tu veux faire" id="want">
         <input type="text" placeholder="Ton expérience avec la programmation" id="know">
+        <input type="text" placeholder="Autre ( projet avenir, autre idée de projets pour le club...)" id="other">
     </div>
     <div class="eleve">
         <h1>Eleve 2</h1>
         <input type="text" placeholder="Ton Nom" id="name2">
         <input type="text" placeholder="Ce que tu veux faire" id="want2">
         <input type="text" placeholder="Ton expérience avec la programmation" id="know2">
+        <input type="text" placeholder="Autre ( projet avenir, autre idée de projets pour le club...)" id="other2">
     </div>
     <div class="eleve">
         <h1>Eleve 3</h1>
         <input type="text" placeholder="Ton Nom" id="name3">
         <input type="text" placeholder="Ce que tu veux faire" id="want3">
         <input type="text" placeholder="Ton expérience avec la programmation" id="know3">
+        <input type="text" placeholder="Autre ( projet avenir, autre idée de projets pour le club...)" id="other3">
     </div>
     <button id="confirm">Confirm</button>
 
@@ -62,14 +65,17 @@
         const name = document.getElementById("name");
         const want = document.getElementById("want");
         const know = document.getElementById("know");
+        const other = document.getElementById("other");
 
         const name2 = document.getElementById("name2");
         const want2 = document.getElementById("want2");
         const know2 = document.getElementById("know2");
+        const other2 = document.getElementById("other2");
 
         const name3 = document.getElementById("name3");
         const want3 = document.getElementById("want3");
         const know3 = document.getElementById("know3");
+        const other3 = document.getElementById("other3");
 
         const confirm = document.getElementById("confirm");
         
@@ -77,7 +83,8 @@
             set(ref(db, "TheStudents/"+ name.value), {
                 Name: name.value,
                 Want: want.value,
-                know: know.value
+                know: know.value,
+                other: other.value
             })
             .then(() =>{
                 alert("Votre compte a été crée");
@@ -89,13 +96,15 @@
             set(ref(db, "TheStudents/"+ name2.value), {
                 Name: name2.value,
                 Want: want2.value,
-                know: know2.value
+                know: know2.value,
+                other: other2.value
             })
 
             set(ref(db, "TheStudents/"+ name3.value), {
                 Name: name3.value,
                 Want: want3.value,
-                know: know3.value
+                know: know3.value,
+                other: other3.value
             })
 
 
