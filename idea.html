@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stye.css">
-    <title>Inscription Dev Club</title>
+    <link rel="stylesheet" href="idea.css">
+    <title>Idée Dev Club</title>
 </head>
 <body>
-    <h1 class="top">Bienvenue...</h1>
+    <h1 class="top">Dev club</h1>
     <div class="eleve">
-        <h1>Eleve 1</h1>
-        <input type="text" placeholder="Ton Nom" id="name">
-        <input type="text" placeholder="Ce que tu veux faire" id="want">
-        <input type="text" placeholder="Ton expérience avec la programmation" id="know">
-        <input type="text" placeholder="Autre ( projet avenir, autre idée de projets pour le club...)" id="other">
-        <a href="idea.html">Lien Idée</a>
+        <h1>Idée de projet</h1>
+        <input type="text" placeholder="nom du projet " id="title">
+        <input type="text" placeholder="Idée de Projet " id="project">
+        <a href="index.html">Inscription</a>
     </div>
     <button id="confirm">Confirm</button>
 
@@ -49,28 +47,24 @@
       
         const analytics = getAnalytics(app);
 
-        const name = document.getElementById("name");
-        const want = document.getElementById("want");
-        const know = document.getElementById("know");
-        const other = document.getElementById("other");
+        const title = document.getElementById("title");
+        const idea = document.getElementById("project");
 
-
-        const confirm = document.getElementById("confirm");
-        
         function InsertData(){
-            set(ref(db, "TheStudents/"+ name.value), {
-                Name: name.value,
-                Want: want.value,
-                know: know.value,
-                other: other.value
+            set(ref(db, "Idée/"+ title.value), {
+                title: title.value,
+                Idea: idea.value
             })
             .then(() =>{
-                alert("Votre compte a été crée");
+                alert("idée enregistré !");
             })
             .catch((error) => {
                 alert("unsuccessfull , error" + error);
             });
         }
+
+        const confirm = document.getElementById("confirm");
+        
 
         confirm.addEventListener('click', InsertData)
     </script>
